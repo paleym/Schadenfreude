@@ -1,0 +1,23 @@
+%h2 Create New User
+
+= form_tag users_path do
+
+  = label :user, :firstName, 'First Name'
+  = text_field :user, 'firstName'
+%br
+
+  = label :user, :lastName, 'Last Name'
+  = text_field :user, 'lastName'
+%br
+
+  = label :user, :email, 'E-mail'
+  = text_field :user, 'email'
+%br
+  -#= label :user, :birthday, 'Birthday'
+  -#= date_select :user, :birthday
+
+  = label :user, :encrypted_password, 'Password'
+  = text_field :user, 'password'
+%br
+
+  = submit_tag 'Create Profile'
