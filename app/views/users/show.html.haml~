@@ -7,7 +7,10 @@
     = @user.email
   %li
     Password:
-    = @user.encrypted_password
+    = @user.password
+  %li
+    Birthday:
+  	= @user.birthday
 
 -#= link_to 'Edit', edit_movie_path(@movie)
 -#= button_to 'Delete', movie_path(@movie), :method => :delete, :confirm => 'Are you sure?'

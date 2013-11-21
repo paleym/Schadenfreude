@@ -16,6 +16,7 @@ group :development, :test do
   gem 'capybara', "~> 2.0.0"
   gem 'launchy'
   gem 'rspec-rails'
+  gem 'rdoc'
 end
 group :test do
   gem 'cucumber-rails'

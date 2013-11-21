@@ -13,8 +13,10 @@
   = label :user, :email, 'E-mail'
   = text_field :user, 'email'
   %br
+  
   = label :user, :birthday, 'Birthday'
   = date_select :user, :birthday
+  %br
 
   = label :user, :encrypted_password, 'Password'
   = text_field :user, 'password'
