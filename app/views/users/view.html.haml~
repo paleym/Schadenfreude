@@ -1,0 +1,19 @@
+%h2 =label :user, :firstName, :lastName, 'firstName lastName'
+
+= form_tag users_path do
+
+  = label :user, :firstName, 'First Name'
+%br
+
+  = label :user, :lastName, 'Last Name'
+%br
+
+  = label :user, :email, 'E-mail'
+%br
+  -#= label :user, :birthday, 'Birthday'
+  -#= date_select :user, :birthday
+
+  = label :user, :encrypted_password, 'Password'
+%br
+
+  = submit_tag 'Create Profile'
