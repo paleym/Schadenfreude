@@ -1,1 +1,47 @@
 @import "twitter/bootstrap";
+
+html {
+	overflow-y: scroll;
+}
+
+body {
+	background-color: #003366;
+	padding-top: 100px;
+	text-align: center;
+}
+
+section {
+	overflow: auto;
+}
+
+textarea {
+	resize: vertical;
+}
+
+.center {
+	text-align: center;
+}
+
+.center h1 {
+	margin-bottom: 10px;
+}
+
+h1.title {
+	background-color: #003366;
+	color: #C0C0C0;
+	border: #C0C0C0;
+}
+h1 {
+	background-color: #003366;
+	color: #C0C0C0;
+}
+
+div {
+	background-color: #003366;
+	color: #C0C0C0;
+}
+
+h2 {
+	background-color: #003366;
+	color: #C0C0C0;
+}
