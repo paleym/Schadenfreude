@@ -1,0 +1,18 @@
+-#  This file is app/views/movies/index.html.haml
+%h1 Schadenfreude
+
+%table
+  %thead
+    %tr
+      %th First Name
+      %th Last Name
+      %th Birthday
+      %th Email
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.firstName 
+        %td= user.lastName
+        %td= user.birthday
+        %td= user.email
+
