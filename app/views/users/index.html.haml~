@@ -13,5 +13,6 @@
         %td= user.lastName
         %td= user.birthday
         %td= user.email
-        
-  = link_to 'Add New User', new_user_path
+=params
+%br
+= link_to 'Add New User', new_user_path
