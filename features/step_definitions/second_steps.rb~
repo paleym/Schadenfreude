@@ -1,0 +1,31 @@
+Given /^I am on the RottenPottoes home page$/ do
+	
+end
+
+When /^I follow "(.*?)"$/ do |link|
+	pending
+end
+
+Then /^I should be on the Create Movie Page$/ do
+	pending
+end
+
+When /^I fill in "(.*?)" with "(.*?)"$/ do |field, data|
+	pending
+end
+
+When /^I select "(.*?)" from "(.*?)"$/ do |data, field|
+	pending
+end
+
+When /^I press "(.*?)"$/ do |field|
+	pending
+end
+
+Then /^I should be in the RottenPotatoes home page$/ do
+	pending
+end
+
+Then /^I should see "(.*?)"$/ do |data|
+	pending
+end

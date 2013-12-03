@@ -11,7 +11,8 @@ class UsersController < ApplicationController
   		flash[:notice] = "Form is invalid!"
   		flash[:color] = "invalid"
   	end
-  	redirect_to users_path(params[:id])
+  	params[:id] = params[:user]
+  	redirect_to users_path(params)
   end
   def show
   	@user = User.find(params[:id])

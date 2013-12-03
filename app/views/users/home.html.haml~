@@ -1,3 +1,5 @@
+-#  This file is app/views/movies/index.html.haml
+%h1 Schadenfreude
 
 %table
   %thead
@@ -13,5 +15,4 @@
         %td= user.lastName
         %td= user.birthday
         %td= user.email
-        
-  = link_to 'Add New User', new_user_path
+
