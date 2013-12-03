@@ -14,6 +14,8 @@ group :development, :test do
   gem 'launchy'
   gem 'rspec-rails'
   gem 'rdoc'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 group :test do
   gem 'cucumber-rails'
