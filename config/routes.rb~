@@ -1,5 +1,6 @@
 Schadenfreude::Application.routes.draw do
   resources :users
+  resources :main
 	#match ':controller(/:action(/:id(.:format)))'
-	root :to => redirect('/new')
+	root :to => "users#main"
 end
