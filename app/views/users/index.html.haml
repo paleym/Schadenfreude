@@ -6,8 +6,6 @@
       %th Last Name
       %th Birthday
       %th Email
-
-=
       %th Password
   %tbody
     - @users.each do |user|
@@ -16,9 +14,7 @@
         %td= user.lastName
         %td= user.birthday
         %td= user.email
-        
-=
         %td= user.password
 %br
->>>>>>> b178047f02e4555323d1c5a05c894d801029a3f5
+
 = link_to 'Add New User', new_user_path
