@@ -6,18 +6,14 @@ Feature: Create a new User of Schadenfreude
 	
 	Scenario: Creating a new User
 		Given I am on the Schadenfreude home page
-		When I press "Add New User"
-		Then I should see "Create a New User Profile"
-		When I fill in "firstName" with "Will"
-		And I fill in "lastName" with "Mortle"
-		And I select "10" from "birthday"
-		And I select "11" from "birthday"
-		And I select "1985" from "birthday"
-		And I fill in "email" with "Imawesome@gmail.com"
-		And I fill in "password" with "blup"
+		When I follow "Add New User"
+		When I fill in "First Name" with "Will"
+		And I fill in "Last Name" with "Mortl"
+		And I fill in "E-mail" with "Imawesome@gmail.com"
+		And I fill in "Password" with "blup"
+		
 		And I press "Create Profile"
-		Then I should be on 'Index'
+		Then I should be on the Schadenfreude home page
 		And I should see "Will"
-		And I should see "Mortle"
+		And I should see "Mortl"
 		And I should see "Imawesome@gmail.com"
-		And I should see "1985"

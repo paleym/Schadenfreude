@@ -1,4 +1,4 @@
-%h2 Create New User
+%h2 Create New User Profile
 
 = form_tag users_path, :controller => :user, :action => :post do |f|
 
