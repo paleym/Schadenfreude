@@ -11,9 +11,10 @@ Feature: Create a new User of Schadenfreude
 		And I fill in "Last Name" with "Mortl"
 		And I fill in "E-mail" with "Imawesome@gmail.com"
 		And I fill in "Password" with "blup"
-		
+		And I select the date "11/11/1985" for "birthday"
 		And I press "Create Profile"
 		Then I should be on the Schadenfreude home page
 		And I should see "Will"
 		And I should see "Mortl"
 		And I should see "Imawesome@gmail.com"
+		And I should see "1985"
