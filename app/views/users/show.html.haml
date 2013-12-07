@@ -1,14 +1,11 @@
 
 %h2 Profile for #{@user.firstName} #{@user.lastName}
+%hr
+%body
+  Profile Information
+  %ul#details
+    %li Email:= @user.email
+    %li Password: = @user.password
+    %li Birthday: = @user.birthday
 
-%ul#details
-  %li
-    Email:
-    = @user.email
-  %li
-    Password:
-    = @user.password
-  %li
-    Birthday:
-    = @user.birthday
-
+  %a=link_to 'Index', '/users'

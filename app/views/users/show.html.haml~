@@ -1,19 +1,21 @@
 
 %h2 Profile for #{@user.firstName} #{@user.lastName}
+%hr
+%body
+  #wrapper
+    #sidebar
+      Profile Information
+    #content
+      %ul#details
+        %li Email:= @user.email
+        %li Password: = @user.password
+        %li Birthday: = @user.birthday
+    #sidebar
+      blank
+    #content
+      %ul#details
+        %li Email:= blah
+        %li Password: = blah
+        %li Birthday: = blah
 
-%ul#details
-  %li
-    Email:
-    = @user.email
-  %li
-    Password:
-    = @user.password
-  %li
-    Birthday:
-  	= @user.birthday
-
--#= link_to 'Edit', edit_movie_path(@movie)
--#= button_to 'Delete', movie_path(@movie), :method => :delete, :confirm => 'Are you sure?'
--#= link_to 'Back to movie list', movies_path
-
--#release_date.strftime("%B %d, %Y")
+  %a=link_to 'Index', '/users'
