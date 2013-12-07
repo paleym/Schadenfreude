@@ -2,20 +2,10 @@
 %h2 Profile for #{@user.firstName} #{@user.lastName}
 %hr
 %body
-  #wrapper
-    #sidebar
-      Profile Information
-    #content
-      %ul#details
-        %li Email:= @user.email
-        %li Password: = @user.password
-        %li Birthday: = @user.birthday
-    #sidebar
-      blank
-    #content
-      %ul#details
-        %li Email:= blah
-        %li Password: = blah
-        %li Birthday: = blah
+  Profile Information
+  %ul#details
+    %li Email: =@user.email
+    %li Password: =@user.password
+    %li Birthday: =@user.birthday
 
   %a=link_to 'Index', '/users'
