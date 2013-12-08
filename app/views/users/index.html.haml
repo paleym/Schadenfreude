@@ -10,11 +10,19 @@
   %tbody
     - @users.each do |user|
       %tr
-        %td= user.firstName 
+        %td= link_to user.firstName, user_path(user.id)
         %td= user.lastName
         %td= user.birthday
         %td= user.email
         %td= user.password
+        
 %br
+=params
+%br
+=session
 
-= link_to 'Add New User', new_user_path
+%br
+%a= link_to 'Add New User', new_user_path
+
+%br
+%a= link_to 'Log Out', user_path(session[:view] = "logout")
