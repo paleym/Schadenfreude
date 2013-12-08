@@ -18,6 +18,10 @@ class UsersController < ApplicationController
   end
   def show
   	@user = User.find(:first, :conditions => {:email => session[:email]})
+  	if (params[:id] != @user.id.to_s)
+	  	params[:id] = @user.id.to_s
+	  	redirect_to ('/users/' + params[:id])
+	  end
   end
   def index
   	@users = User.all

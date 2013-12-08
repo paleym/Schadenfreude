@@ -15,6 +15,6 @@
         %td= user.birthday
         %td= user.email
         %td= user.password
-=params
 %br
+
 = link_to 'Add New User', new_user_path
