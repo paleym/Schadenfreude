@@ -24,20 +24,5 @@
 %br
 %a= link_to 'Add New User', new_user_path
 
-= form_tag users_path, session[:view] => "home" do
-
-  = label :user, :email, 'E-mail'
-  = text_field :user, 'email'
-  
-  %br
-  = label :user, :passwod, 'Password'
-  = text_field :user, 'password'
-  
-  %br
-  = submit_tag 'Log In'
-
 %br
 %a= link_to 'Log Out', user_path(session[:view] = "logout")
-
-%br
-%a= link_to 'Clear Session', user_path(session[:view] = nil)

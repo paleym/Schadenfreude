@@ -19,6 +19,14 @@ class UsersController < ApplicationController
     redirect_to ('/users/' + params[:id])
   end
   def show
+  	if (session[:view] == nil)
+  		reset_session()
+  		flash[:notice] = "You must log in before viewing User's profile pages!"
+      flash[:color] = "invalid"
+  		session[:view] = "login"
+  		params[:action] = index
+  		redirect_to ('/users')
+  	end
     if (session[:view] == "home")
       @user = User.find(:first, :conditions => {:email => session[:email]})
       if (params[:id] != @user.id.to_s)
@@ -32,19 +40,24 @@ class UsersController < ApplicationController
       session[:email] = nil
       session[:id] = nil
       params[:action] = index
+      session[:view] = "login"
       redirect_to ('/users')
     else
       flash[:notice] = "You must log in before viewing User's profile pages!"
       flash[:color] = "invalid"
+      session[:view] = "login"
+      params[:action] = index
       redirect_to ('/users')
     end
   end
   def index
-    @users = User.all
+  	if (session[:view] = "search")
+		    @users = User.all
+		elsif (session[:view] = "login")
+				@users = nil
+		end
   end
   def search
-    
-  end
-  def main
+    @user = User.find(:first, :conditions => {:email => session[:email]})
   end
 end
