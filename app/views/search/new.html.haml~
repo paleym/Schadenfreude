@@ -1,0 +1,6 @@
+%h2 Search the Misery!
+
+  %p
+  %a=link_to "Search!", '/search_results'
+
+  %a=link_to "Back to Profile!", '/users/' + session[:id]

@@ -7,5 +7,7 @@
     %li Birthday: #{@user.birthday}
 
   %br
-  %a=link_to 'Index', '/users'
+  #{link_to "Index", '/users'}
 
+  %br
+  %a=link_to "Search for friends", '/search', :action => 'new'
