@@ -1,28 +1,7 @@
-%h2
-%table
-  %thead
-    %tr
-      %th First Name
-      %th Last Name
-      %th Birthday
-      %th Email
-      %th Password
-  %tbody
-    - @users.each do |user|
-      %tr
-        %td= link_to user.firstName, user_path(user.id)
-        %td= user.lastName
-        %td= user.birthday
-        %td= user.email
-        %td= user.password
-        
-%br
-=params
-%br
-=session
+%h2 They are already miserable, why not enjoy it?
+%img{:src => "/schadenfreude.jpg", :height => "250"}
+%p
+#{link_to "Sign up now!", signup_path}
 
 %br
-%a= link_to 'Add New User', new_user_path
-
-%br
-%a= link_to 'Log Out', user_path(session[:view] = "logout")
+#{link_to "Sign In", signin_path}

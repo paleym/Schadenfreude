@@ -33,6 +33,7 @@ class UsersController < ApplicationController
 	    elsif (params[:id] != @user.id.to_s)
 	      params[:id] = @user.id.to_s
 	      redirect_to ('/users/' + params[:id])
+	    end
 	  elsif (session[:view] == "friend")
 	  	@user = User.find(:first, :conditions => {:email => session[:friend]})
 	  	if (@user == nil)

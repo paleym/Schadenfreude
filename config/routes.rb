@@ -3,8 +3,11 @@ Schadenfreude::Application.routes.draw do
 	#match ':controller(/:action(/:id(.:format)))'
 	root :to => "users#main"
   resources :sessions, only: [:new, :create, :destroy]
+  resources :search, only: [:new, :index]
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/main', 		to: 'users#main',						via: 'get'
+  match '/search',	to: 'search#new',						via: 'get'
+  match '/search_results', to: 'search#index',	via: 'get'
 end
