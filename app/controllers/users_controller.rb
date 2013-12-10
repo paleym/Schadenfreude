@@ -51,4 +51,6 @@ class UsersController < ApplicationController
   end
   def main
   end
+  def search
+  end
 end
