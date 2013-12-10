@@ -10,4 +10,4 @@
   %a=link_to 'Index', '/users'
   
   %br
-  %a= link_to 'Log Out', user_path(session[:view] = "logout")
+  %a= link_to 'Log Out', '/signout', :method => :delete
