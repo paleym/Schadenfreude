@@ -8,36 +8,17 @@
       %th Email
       %th Password
   %tbody
-    - @users.each do |user|
-      %tr
-        %td= link_to user.firstName, user_path(user.id)
-        %td= user.lastName
-        %td= user.birthday
-        %td= user.email
-        %td= user.password
-        
-%br
-=params
-%br
-=session
-
-%br
-%a= link_to 'Add New User', new_user_path
-
-= form_tag users_path, session[:view] => "home" do
-
-  = label :user, :email, 'E-mail'
-  = text_field :user, 'email'
-  
+    - if(@users != nil)
+      - @users.each do |user|
+        %tr
+          %td= link_to user.firstName, user_path(user.id)
+          %td= user.lastName
+          %td= user.birthday
+          %td= user.email
+          %td= user.password
+    
+  =User.all      
+  %p
+  =params
   %br
-  = label :user, :passwod, 'Password'
-  = text_field :user, 'password'
-  
-  %br
-  = submit_tag 'Log In'
-
-%br
-%a= link_to 'Log Out', user_path(session[:view] = "logout")
-
-%br
-%a= link_to 'Clear Session', user_path(session[:view] = nil)
+  =session

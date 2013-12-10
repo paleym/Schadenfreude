@@ -15,8 +15,6 @@
   %br
   %a=link_to 'Index', '/users'
   
-  %br
-  %a=link_to 'Search', user_path(session[:view] = "search", :action => search)
   
   %br
   %a= link_to 'Log Out', user_path(session[:view] = "logout")

@@ -14,4 +14,4 @@
       %p
         New user? #{link_to "Sign up now!", signup_path}
         %br
-        Back to #{link_to "Schadenfreude.com!", '/'}
+        #{link_to "Back to Schadenfreude.com!", '/'}
