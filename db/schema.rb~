@@ -26,7 +26,10 @@ ActiveRecord::Schema.define(:version => 20131210040715) do
     t.string   "remember_token"
   end
 
+<<<<<<< HEAD
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+=======
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+>>>>>>> e6c4d542a06654ecd4f8444da71d31bb5abd3ec2
 
 end
