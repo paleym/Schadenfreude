@@ -46,3 +46,4 @@ gem 'bcrypt-ruby'
 
 # To use debugger
 gem 'haml'
+gem 'activerecord-postgresql-adapter'
