@@ -1,7 +1,10 @@
 %h2 Search the Misery!
 
-%p
-%a=link_to "Search!", '/search_results'
+= form_tag search_results_path, :controller => :search, :action => :post do |f|
+  = label session[:input], 'Last Name'
+  = text_field session[:input], 'input'
+  %br
+  = submit_tag 'Search'
 
 %br
 %a=link_to "Back to Profile!", '/users/' + session[:id]
