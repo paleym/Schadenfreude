@@ -1,7 +1,0 @@
-%h2 They are already miserable, why not enjoy it?
-%img{:src => "/schadenfreude.jpg", :height => "250"}
-%p
-#{link_to "Sign up now!", signup_path}
-
-%br
-#{link_to "Sign In", signin_path}
