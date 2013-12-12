@@ -25,24 +25,16 @@ class UsersController < ApplicationController
       flash[:color] = "invalid"
   		redirect_to ('/')
   	end
-  	if (session[:view] == "home")
+  	if params[:id] != nil
+  		@user = User.find(params[:id])
+  	else
 	    @user = User.find(:first, :conditions => {:email => session[:email]})
-  	  if (@user == nil)
-	    	flash[:notice] = "Invalid Session Data!"
-	      flash[:color] = "invalid"
-	  		redirect_to ('/')
-	    elsif (params[:id] != @user.id.to_s)
-	      params[:id] = @user.id.to_s
-	      redirect_to ('/users/' + params[:id])
-	    end
-	  elsif (session[:view] == "friend")
-	  	@user = User.find(:first, :conditions => {:email => session[:friend]})
-	  	if (@user == nil)
-	    	flash[:notice] = "Invalid Session Data!"
-	      flash[:color] = "invalid"
-	  		redirect_to ('/users/' + session[:id])
-	  	end
-    end
+	  end
+ 	  if (@user == nil)
+     	flash[:notice] = "Invalid Session Data!"
+     	flash[:color] = "invalid"
+			redirect_to ('/')
+	  end
   end
   def index
 		@users = User.all
