@@ -38,6 +38,9 @@ class UsersController < ApplicationController
 				@users = nil
 		end
   end
+  def edit
+  	@user = User.find(session[:id])
+  end
   def main
   end
   def search

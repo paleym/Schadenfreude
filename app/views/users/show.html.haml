@@ -1,3 +1,4 @@
+
 %div{style: "text-align:center"}
   %h2 Profile for #{@user.firstName} #{@user.lastName}
   %hr
@@ -10,6 +11,8 @@
     %br
     %a=link_to "Index", '/users'
 
+  %br
+  %a=link_to "Edit Profile", '/edit_profile', :method => :get
 
     %br
     %a=link_to "Search for friends", {:action => 'new', :controller => 'search'}
