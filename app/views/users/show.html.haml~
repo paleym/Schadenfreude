@@ -7,14 +7,10 @@
     %li Birthday: #{@user.birthday}
 
   %br
-  =params
-  %br
-  =session
-
-  %br
   #{link_to "Index", '/users'}
 
   %br
+
   %a= link_to 'Log Out', '/signout', :method => :delete
   
   %br

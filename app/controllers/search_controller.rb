@@ -1,6 +1,5 @@
 class SearchController < ApplicationController
 	def new
-		redirect_to ('/')
 	end
 	def index
 		lastName = params[:input]

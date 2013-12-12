@@ -25,15 +25,11 @@ class UsersController < ApplicationController
       flash[:color] = "invalid"
   		redirect_to ('/')
   	end
-  	if params[:id] != nil
-  		@user = User.find(params[:id])
-  	else
-	    @user = User.find(:first, :conditions => {:email => session[:email]})
-	  end
- 	  if (@user == nil)
-     	flash[:notice] = "Invalid Session Data!"
-     	flash[:color] = "invalid"
-			redirect_to ('/')
+    @user = User.find(:first, :conditions => {:id => params[:id]})
+  	if (@user == nil)
+	  	flash[:notice] = "Invalid Session Data!"
+	    flash[:color] = "invalid"
+		  redirect_to ('/')
 	  end
   end
   def index
