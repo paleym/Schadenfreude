@@ -7,6 +7,7 @@ Schadenfreude::Application.routes.draw do
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
+  match '/edit_profile', to: 'users#edit',			via: 'get'
   match '/main', 		to: 'users#main',						via: 'get'
   match '/search',	to: 'search#new',						via: 'get'
   match '/search',	to: 'search#index',					via: 'post'

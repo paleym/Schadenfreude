@@ -6,8 +6,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save()
       sign_in @user
-      flash[:notice] = params
-      #flash[:notice] = "You have successfully signed up for Schadenfreude!"
+      flash[:notice] = "You have successfully signed up for Schadenfreude!"
       flash[:color] = "valid"
     else
       flash[:notice] = params
@@ -38,6 +37,9 @@ class UsersController < ApplicationController
 		if (session[:email] == nil)
 				@users = nil
 		end
+  end
+  def edit
+  	@user = User.find(session[:id])
   end
   def main
   end

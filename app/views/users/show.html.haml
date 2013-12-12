@@ -5,10 +5,17 @@
   %ul#details
     %li Email: #{@user.email}
     %li Birthday: #{@user.birthday}
+    
+  %br
+  =params
+  %br
+  =session
 
   %br
   %a=link_to "Index", '/users'
 
+  %br
+  %a=link_to "Edit Profile", '/edit_profile', :method => :get
 
   %br
   %a=link_to "Search for friends", {:action => 'new', :controller => 'search'}

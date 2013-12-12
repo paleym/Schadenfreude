@@ -5,14 +5,21 @@
   %ul#details
     %li Email: #{@user.email}
     %li Birthday: #{@user.birthday}
+    
+  %br
+  =params
+  %br
+  =session
 
   %br
-  #{link_to "Index", '/users'}
+  %a=link_to "Index", '/users'
 
   %br
+  %a=link_to "Edit Profile", edit_user_path(@user)
 
-  %a= link_to 'Log Out', '/signout', :method => :delete
-  
   %br
   %a=link_to "Search for friends", {:action => 'new', :controller => 'search'}
+
+  %br
+  %a=link_to "Log out", '/signout', :method => :delete
 
