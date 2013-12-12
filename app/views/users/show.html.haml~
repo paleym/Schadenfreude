@@ -7,7 +7,16 @@
     %li Birthday: #{@user.birthday}
 
   %br
+  =params
+  %br
+  =session
+
+  %br
   #{link_to "Index", '/users'}
 
   %br
-  %a=link_to "Search for friends", '/search', :action => 'new'
+  %a= link_to 'Log Out', '/signout', :method => :delete
+  
+  %br
+  %a=link_to "Search for friends", {:action => 'new', :controller => 'search'}
+
