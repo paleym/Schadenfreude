@@ -40,34 +40,17 @@ class UsersController < ApplicationController
   end
   def edit
   	@user = User.find(session[:id])
-  	if @user != nil
-	  	@user.firstName = params[:firstName]
-	  	@user.lastName = params[:lastName]
-  		if params[:password] == params[:password_confirmation]
-		  	@user.password = params[:password]
-  			@user.password_confirmation = params[:password_confirmation]
-  			if @user.save()
-  	    	flash[:notice] = "You have successfully edited your profile!"
-  	    	flash[:color] = "valid"
-	  	  else
-  		    flash[:notice] = "Invalid Form Data!"
-  		    flash[:color] = "invalid"
-  		    redirect_to ('/')
-  		  end
-  		else
-  	    flash[:notice] = "Passwords don't match!"
-  	    flash[:color] = "invalid"
-  		end
-  	  session[:id] = @user.id.to_s
-  	  session[:email] = @user.email
-  	  session[:view] = "home"
-  	  params[:id] = @user.id.to_s
-  	  @user.save
-  	else
-  		flash[:notice] = "Invalid Form Data!"
-  	  flash[:color] = "invalid"
-  	  redirect_to ('/')
-  	end
+  end
+  def update
+  	@user = User.find(session[:id])
+  	if @user.update_attributes!(params)	
+	    flash[:notice] = "Profile Information Updated!"
+      flash[:color] = "valid"
+	  else
+	  	flash[:notice] = "Problem saving information, Profile information not updated!"
+	    flash[:color] = "invalid"
+	  end
+    redirect_to movie_path(@movie)
   end
   def main
   end
