@@ -9,7 +9,7 @@
       %li Birthday: #{@user.birthday}
 
   %br
-  %a=link_to "Post on Wall", '/newpost', {:id => @user.id}
+  %a=link_to "Post on Wall", '/newpost',
 
   %br
   %a=link_to "Index", '/users'

@@ -1,0 +1,12 @@
+%h2 Write on their wall!
+= form_tag '/newpost', :method => :post, :action => :create, :id => @friend.id do |f|
+
+  = label :wallpost, :text, 'Wall Post'
+  = text_field :wallpost, 'text'
+  %br
+  = submit_tag 'Post!'
+  
+%br
+%a=link_to "Back to your page!", user_path(@poster.id)
+%br
+%a=link_to "Index", '/users'

@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       flash[:notice] = "You have successfully signed up for Schadenfreude!"
       flash[:color] = "valid"
     else
-      flash[:notice] = params
+      flash[:notice] = "Form Data Invalid!"
       flash[:color] = "invalid"
     end
     session[:id] = @user.id.to_s
@@ -43,14 +43,14 @@ class UsersController < ApplicationController
   end
   def update
   	@user = User.find(session[:id])
-  	if @user.update_attributes!(params)	
+  	if @user.update_attributes!(params)
 	    flash[:notice] = "Profile Information Updated!"
       flash[:color] = "valid"
 	  else
 	  	flash[:notice] = "Problem saving information, Profile information not updated!"
 	    flash[:color] = "invalid"
 	  end
-    redirect_to user_path(@user)
+    redirect_to user_path(@user.id)
   end
   def main
   end

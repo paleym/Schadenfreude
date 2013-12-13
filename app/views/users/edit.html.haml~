@@ -1,6 +1,6 @@
 %h2 Edit User Profile
 
-= form_tag '/editing', :method => :patch, :action => :update do |f|
+= form_tag users_path, :method => :patch, :action => :update do |f|
 
   = label :user, :firstName, 'First Name'
   = text_field :user, 'firstName'
