@@ -1,10 +1,12 @@
-%h2 Search the Misery!
+%h2.text-center Search the Misery!
 
-= form_tag search_results_path, :controller => :search, :action => :post do |f|
-  = label session[:input], 'Last Name'
-  = text_field session[:input], 'input'
+%div{style: "text-align:center"}
+  = form_tag search_results_path, :controller => :search, :action => :post do |f|
+    = label session[:input], 'Last Name'
+    = text_field session[:input], 'input'
+    %br
+    = submit_tag 'Search'
+
+%div{style: "text-align:center"}
   %br
-  = submit_tag 'Search'
-
-%br
-%a=link_to "Back to Profile!", '/users/' + session[:id]
+  %a=link_to "Back to Profile!", '/users/' + session[:id]

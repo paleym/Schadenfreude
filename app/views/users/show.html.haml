@@ -1,18 +1,15 @@
-%h2 Profile for #{@user.firstName} #{@user.lastName}
-%hr
-%body
-  Profile Information
-  %ul#details
-    %li Email: #{@user.email}
-    %li Birthday: #{@user.birthday}
-    
-  %br
-  =params
-  %br
-  =session
 
-  %br
-  %a=link_to "Index", '/users'
+%div{style: "text-align:center"}
+  %h2 Profile for #{@user.firstName} #{@user.lastName}
+  %hr
+  %body
+    Profile Information
+    %ul#details
+      %li Email: #{@user.email}
+      %li Birthday: #{@user.birthday}
+
+    %br
+    %a=link_to "Index", '/users'
 
   %br
   %a=link_to "Edit Profile", '/edit_profile', :method => :get

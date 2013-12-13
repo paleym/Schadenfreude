@@ -1,17 +1,15 @@
 - provide(:title, "Sign in")
 %h1.text-center Sign in
-%div.container
-  .row
-    .span6.offset3
-      = form_for(:session, url: sessions_path) do |f|
-        = f.label :email
-        = f.text_field :email, class: "span4", offset: "3"
-        %br
-        = f.label :password
-        = f.password_field :password, class: "span4"
-        %br
-        = f.submit "Sign in", class: "btn btn-large btn-primary"
-      %p
-        New user? #{link_to "Sign up now!", signup_path}
-        %br
-        Back to #{link_to "Schadenfreude.com!", '/'}
+%div{style: "text-align:center"}
+  = form_for(:session, url: sessions_path) do |f|
+    = f.label :email
+    = f.text_field :email, class: "span4", offset: "3"
+    %br
+    = f.label :password
+    = f.password_field :password, class: "span4"
+    %br
+    = f.submit "Sign in", class: "btn btn-large btn-primary"
+    %p
+    New user? #{link_to "Sign up now!", signup_path}
+    %br
+    Back to #{link_to "Schadenfreude.com!", '/'}

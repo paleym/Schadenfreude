@@ -1,16 +1,19 @@
-%h2 They are already miserable, why not enjoy it?
+%h2.text-center They are already miserable, why not enjoy it?
 
-%table
+%table.text-center{ :align => 'center', :width => 400, 'border' => 0, 'cellpadding' => 5, 'cellspacing' => 5 }
   %thead
     %tr
-      %th First Name
-      %th Last Name
+      %th.text-center First Name
+      %th.text-center Last Name
   %tbody
     - if(@display != nil)
       - @display.each do |user|
         %tr
-          %td= link_to user.firstName, user_path(user.id)
-          %td= user.lastName
+          %td.text-center= link_to user.firstName, user_path(user.id)
+          %td.text-center= user.lastName
 
 %br
-#{link_to "Back to Profile!", '/users/' + session[:id]}
+%div{style: "text-align:center"}
+  %a=link_to "Search Again", {:action => 'new', :controller => 'search'}
+  %br
+  %a=link_to "Back to Profile!", '/users/' + session[:id]
