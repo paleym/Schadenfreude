@@ -1,6 +1,4 @@
 class WallpostsController < ApplicationController
-  # GET /wallposts
-  # GET /wallposts.json
   def index
     @wallposts = Wallpost.all
 
@@ -10,8 +8,6 @@ class WallpostsController < ApplicationController
     end
   end
 
-  # GET /wallposts/1
-  # GET /wallposts/1.json
   def show
     @wallpost = Wallpost.find(params[:id])
 
@@ -23,7 +19,12 @@ class WallpostsController < ApplicationController
 
   def new
   	@poster = User.find(:first, :conditions => {:id => session[:id]})
-  	@friend = User.find(:first, :conditions => {:id => params[:id]})
+  	@friend = User.find(:first, :conditions => {:email => params[:email]})
+  	if @friend == nil or @poster == nil
+  		flash[:notice] = "Problem redirecting!"
+	    flash[:color] = "invalid"
+	  end
+	  session[:recent] = @friend.id
     @wallpost = Wallpost.new
   end
 
@@ -31,17 +32,18 @@ class WallpostsController < ApplicationController
     @wallpost = Wallpost.find(params[:id])
   end
 
-  # POST /wallposts
-  # POST /wallposts.json
   def create
-    if @wallpost = Wallpost.new(params[:wallpost])
-    	flash[:notice] = "Wallpost created!"
+  	params[:wallpost][:owner_id] = session[:id]
+  	params[:wallpost][:user_id] = session[:recent]
+	  @wallpost = Wallpost.new(params[:wallpost])
+    if @wallpost.save()
+    	flash[:notice] = "Wall Post successfully created!"
       flash[:color] = "valid"
 	  else
-	  	flash[:notice] = "Problem creating Wallpost!"
+	  	flash[:notice] = "Problem creating Wall Post!"
 	    flash[:color] = "invalid"
 	  end
-	 	redirect_to ('/user' + params[:id])
+	 	redirect_to ('/users/' + session[:recent].to_s)
 	end
 
   def update

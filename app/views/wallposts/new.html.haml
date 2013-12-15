@@ -1,8 +1,8 @@
-%h2 Write on their wall!
+%h2 Write on #{@friend.firstName} #{@friend.lastName} wall!
 = form_tag '/newpost', :method => :post, :action => :create, :id => @friend.id do |f|
 
-  = label :wallpost, :text, 'Wall Post'
-  = text_field :wallpost, 'text'
+  = label :wallpost, :content, 'Wall Post'
+  = text_field :wallpost, 'content'
   %br
   = submit_tag 'Post!'
   

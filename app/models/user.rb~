@@ -14,8 +14,6 @@ class User < ActiveRecord::Base
 	validates :password, presence: true, length: { mininum: 6, maximum: 50 }
 	validates :password_confirmation, presence: true
 
-	has_many :wallposts
-	
 	private
 
     	def create_remember_token

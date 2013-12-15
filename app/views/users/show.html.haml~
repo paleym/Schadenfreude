@@ -7,9 +7,30 @@
     %ul#details
       %li Email: #{@user.email}
       %li Birthday: #{@user.birthday}
+    
+    %br
+    Wall Posts
+    %table.text-center{ :align => 'center', :width => 800, 'border' => 0, 'cellpadding' => 5, 'cellspacing' => 5 }
+      %thead
+        %tr
+          %th.text-center Posted By
+          %th.text-center Post
+      
+      %tbody
+        - if(@wallposts != nil)
+          - @wallposts.each do |post|
+            %tr
+              %td= link_to '#{User.find(:first, :conditions => {:id => post.owner_id}).firstName}', user_path(post.owner_id)
+              %td= post.content
+        - else
+          %tr
+            %td No
+            %td Posts
+  %br
+  =session
 
   %br
-  %a=link_to "Post on Wall", '/newpost',
+  %a=link_to "Post on Wall", {:action => 'new', :controller => 'wallposts', :email => @user.email}
 
   %br
   %a=link_to "Index", '/users'

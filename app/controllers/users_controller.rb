@@ -26,6 +26,9 @@ class UsersController < ApplicationController
   		redirect_to ('/') and return
   	end
     @user = User.find(:first, :conditions => {:id => params[:id]})
+    if Wallpost.find(:first, :conditions => {:user_id => params[:id]})
+    	@wallposts = Wallpost.find(:conditions => {:user_id => params[:id]})
+    end
   	if (@user == nil)
 	  	flash[:notice] = "Invalid Session Data!"
 	    flash[:color] = "invalid"
@@ -35,7 +38,7 @@ class UsersController < ApplicationController
   def index
 		@users = User.all
 		if (session[:email] == nil)
-				@users = nil
+				redirect_to ('/')
 		end
   end
   def edit
