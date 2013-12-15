@@ -43,13 +43,16 @@ class UsersController < ApplicationController
   end
   def update
   	@user = User.find(session[:id])
-  	if @user.update_attributes!(params)
+  	if @user.update_attributes!(params[:user])
 	    flash[:notice] = "Profile Information Updated!"
       flash[:color] = "valid"
 	  else
 	  	flash[:notice] = "Problem saving information, Profile information not updated!"
 	    flash[:color] = "invalid"
 	  end
+   	@user = User.find(session[:id])
+   	session[:email] = @user.email
+   	params[:email] = @user.email
     redirect_to user_path(@user.id)
   end
   def main
