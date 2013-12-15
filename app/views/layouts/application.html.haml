@@ -8,12 +8,13 @@
   %body
     = render :partial => 'layouts/header'
     %h1.title.text-center Schadenfreude
-    #main
-      - if flash[:notice]
-        #notice.message= flash[:notice]
-      - elsif flash[:warning]
-        #warning.message= flash[:warning]
-      %hr  
-      %hr
+    %div{style: "text-align:center"}
+      #main
+        - if flash[:notice]
+          #notice.message= flash[:notice]
+        - elsif flash[:warning]
+          #warning.message= flash[:warning]
+        %hr  
+        %hr
 
-      = yield
+        = yield

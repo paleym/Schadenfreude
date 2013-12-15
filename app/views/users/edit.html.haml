@@ -1,29 +1,29 @@
-%h2 Edit User Profile
+%h2.text-center Edit User Profile
+%div{style: "text-align:center"}
+  = form_tag '/editing', :method => :patch, :action => :update do |f|
 
-= form_tag '/editing', :method => :patch, :action => :update do |f|
+    = label :user, :firstName, 'First Name'
+    = text_field :user, 'firstName'
+    %br
 
-  = label :user, :firstName, 'First Name'
-  = text_field :user, 'firstName'
-  %br
+    = label :user, :lastName, 'Last Name'
+    = text_field :user, 'lastName'
+    %br
 
-  = label :user, :lastName, 'Last Name'
-  = text_field :user, 'lastName'
-  %br
+    = label :user, :email, 'E-mail'
+    = text_field :user, 'email'
+    %br
+    
+    = label :user, :birthday, 'Birthday'
+    = date_select :user, :birthday, :start_year => 1940
+    %br
 
-  = label :user, :email, 'E-mail'
-  = text_field :user, 'email'
-  %br
-  
-  = label :user, :birthday, 'Birthday'
-  = date_select :user, :birthday, :start_year => 1940
-  %br
+    = label :user, :password, 'Password'
+    = text_field :user, 'password'
+    %br
 
-  = label :user, :password, 'Password'
-  = text_field :user, 'password'
-  %br
+    = label :user, :password_confirmation
+    = text_field :user, 'password_confirmation'
+    %br
 
-  = label :user, :password_confirmation
-  = text_field :user, 'password_confirmation'
-  %br
-
-  = submit_tag 'Edit Profile'
+    = submit_tag 'Edit Profile'
