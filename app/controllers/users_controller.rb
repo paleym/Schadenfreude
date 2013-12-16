@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 	  end
   end
   def index
-		@users = User.all
+		@wallposts = Wallpost.all
 		if (session[:email] == nil)
 				redirect_to ('/')
 		end

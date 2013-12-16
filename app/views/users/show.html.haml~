@@ -21,7 +21,7 @@
           - @wallposts.each do |post|
             - temp = User.find(:first, :conditions => {:id => post.owner_id})
             %tr
-              %td= link_to '{temp.firstName temp.lastName}', user_path(post.owner_id)
+              %td= link_to [temp.firstName, temp.lastName].join(" "), user_path(post.owner_id)
               %td= post.content
         - else
           %tr

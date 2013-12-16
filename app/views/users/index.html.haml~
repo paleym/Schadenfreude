@@ -6,10 +6,16 @@
       %th.text-center Post
       
   %tbody
-    - if(@users != nil)
-      - @users.each do |user|
+    - if(@wallposts != nil)
+      - @wallposts.each do |post|
+        - temp = User.find(:first, :conditions => {:id => post.owner_id})
         %tr
-          %td= link_to user.firstName, user_path(user.id)
-          %td= user.lastName
-          %td= user.birthday
-          %td= user.email
+          %td= link_to [temp.firstName, temp.lastName].join(" "), user_path(post.owner_id)
+          %td= post.content
+    - else
+      %tr
+        %td No
+        %td Posts
+
+  %br
+  %a=link_to "Back to Profile!", user_path(session[:id])
