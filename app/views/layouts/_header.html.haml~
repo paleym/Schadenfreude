@@ -16,4 +16,4 @@
         %li
           %a{href: "signup"} Sign Up
         %li
-          %a=link_to "Sign Out", {:action => 'destroy', :controller => 'sessions', :method => 'delete'}
+          %a=link_to "Sign Out", {:controller => 'sessions', :action => 'destroy', :method => 'delete'}
