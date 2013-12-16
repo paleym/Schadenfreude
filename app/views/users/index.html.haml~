@@ -15,3 +15,7 @@
           %td= user.lastName
           %td= user.birthday
           %td= user.email
+  %br
+  =params
+  %br
+  =session
