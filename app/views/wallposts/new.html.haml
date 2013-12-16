@@ -2,7 +2,7 @@
 = form_tag '/newpost', :method => :post, :action => :create, :id => @friend.id do |f|
 
   = label :wallpost, :content, 'Wall Post'
-  = text_field :wallpost, 'content'
+  = text_area :wallpost, 'content', :size => {cols: "50", rows: "4"}
   %br
   = submit_tag 'Post!'
   
