@@ -20,7 +20,7 @@
         - if(@wallposts != nil)
           - @wallposts.each do |post|
             %tr
-              %td= link_to '#{User.find(:first, :conditions => {:id => post.owner_id}).firstName}', user_path(post.owner_id)
+              %td= link_to User.find(:first, :conditions => {:id => post.owner_id}).firstName, user_path(post.owner_id)
               %td= post.content
         - else
           %tr
