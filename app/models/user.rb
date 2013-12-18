@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
 
 	has_many :wallposts
 	
+	serialize :friends
+	
 	private
 
     	def create_remember_token

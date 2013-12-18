@@ -1,12 +1,19 @@
 
 %div{style: "text-align:center"}
-  %h2 Profile for #{@user.firstName} #{@user.lastName}
-  %hr
-  %body
-    Profile Information
-    %ul#details
-      %li Email: #{@user.email}
-      %li Birthday: #{@user.birthday}
+  - if(@friend != nil)
+    %h2 Profile for #{@friend.firstName} #{@friend.lastName}
+    %body
+      Profile Information
+      %ul#details
+        %li Email: #{@friend.email}
+        %li Birthday: #{@friend.birthday}
+  - else
+    %h2 Profile for #{@user.firstName} #{@user.lastName}
+    %body
+      Profile Information
+      %ul#details
+        %li Email: #{@user.email}
+        %li Birthday: #{@user.birthday}
     
     %br
     Wall Posts
@@ -28,14 +35,18 @@
             %td No
             %td Posts
 
-  %br
-  %a=link_to "Post on Wall", {:action => 'new', :controller => 'wallposts', :email => @user.email}
+  - if(@friend != nil)
+    %br
+    %a=link_to "Post on Wall", {:action => 'new', :controller => 'wallposts', :email => @friend.email}
+    %br
+    %a=link_to "Add Friend!"
 
   %br
   %a=link_to "News Feed", '/users'
 
-  %br
-  %a=link_to "Edit Profile", '/edit_profile', :method => :get
+  - if(@friend == nil)
+    %br
+    %a=link_to "Edit Profile", '/edit_profile', :method => :get
 
   %br
   %a=link_to "Search for friends", {:action => 'new', :controller => 'search'}

@@ -25,7 +25,10 @@ class UsersController < ApplicationController
       flash[:color] = "invalid"
   		redirect_to ('/') and return
   	end
-    @user = User.find(:first, :conditions => {:id => params[:id]})
+    @user = User.find(:first, :conditions => {:id => session[:id]})
+    if (session[:id] != params[:id])
+	    @friend = User.find(:first, :conditions => {:id => params[:id]})
+	  end
     if Wallpost.find(:first, :conditions => {:user_id => params[:id].to_i})
     	@wallposts = Wallpost.find(:all, :conditions => {:user_id => params[:id].to_i})
     end
