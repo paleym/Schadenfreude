@@ -13,6 +13,7 @@ Schadenfreude::Application.routes.draw do
   match '/editing', to: 'users#update',					via: 'patch'
   match '/newpost', to: 'wallposts#new',				via: 'get'
   match '/newpost', to: 'wallposts#create',			via: 'post'
+  match '/users/addfriend',		to: 'users#rfriend',				via: 'post'
   match '/main', 		to: 'users#main',						via: 'get'
   match '/search',	to: 'search#new',						via: 'get'
   match '/search',	to: 'search#index',					via: 'post'

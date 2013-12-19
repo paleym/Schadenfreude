@@ -1,4 +1,3 @@
-
 %div{style: "text-align:center"}
   - if(@friend != nil)
     %h2 Profile for #{@friend.firstName} #{@friend.lastName}
@@ -34,12 +33,13 @@
           %tr
             %td No
             %td Posts
-
+  
   - if(@friend != nil)
     %br
     =link_to "Post on Wall", {:action => 'new', :controller => 'wallposts', :email => @friend.email}
     %br
-    =link_to "Add Friend!"
+    = form_tag "addfriend" do |f|
+      = submit_tag 'Add Friend!'
 
   %br
   =link_to "News Feed", '/users'

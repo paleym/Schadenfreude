@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
 	has_many :wallposts
 	
 	serialize :friends
+	serialize :requests
 	
 	private
 

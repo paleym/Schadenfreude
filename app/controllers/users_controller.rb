@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     else
       flash[:notice] = "Form Data Invalid!"
       flash[:color] = "invalid"
+      redirect_to ('/') and return
     end
     session[:id] = @user.id.to_s
     session[:email] = @user.email
@@ -41,8 +42,9 @@ class UsersController < ApplicationController
   def index
 		@wallposts = Wallpost.all
 		if (session[:email] == nil)
-				redirect_to ('/')
+				redirect_to ('/') and return
 		end
+		@user = User.find(session[:id])
   end
   def edit
   	@user = User.find(session[:id])
@@ -60,6 +62,20 @@ class UsersController < ApplicationController
    	session[:email] = @user.email
    	params[:email] = @user.email
     redirect_to user_path(@user.id)
+  end
+  def rfriend # request friend
+  	@user = User.find(session[:id])
+  	@friend = User.find(params[:id])
+  	@friend.requests << @user.id
+  	flash[:notice] = "#{@friend.firstName} #{@friend.lastName} added as a friend!"
+    flash[:color] = "valid"
+  	redirect_to user_path(params[:id])
+  end
+  def afriend # accept friend
+  end
+  def dfriend # deny friend
+  end
+  def remfriend # remove friend
   end
   def main
   end
