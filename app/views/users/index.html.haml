@@ -16,13 +16,13 @@
       %tr
         %td No
         %td Posts
-    -# if(@user.requests != nil)
-      -# @user.requests.each do |request|
-        -# temp = User.find(:first, :conditions => {:id => request})
-        =# link_to [temp.firstName, temp.lastName].join(" "), user_path(request)
-        = #link_to "Accept", {:action => 'afriend', :id => request}
-        =#{}" or "
-        =# link_to "Deny!", {:action => 'dfriend', :id => request}
+    - if(@user.requests != nil)
+      - @user.requests.each do |request|
+        - temp = User.find(:first, :conditions => {:id => request})
+        = link_to [temp.firstName, temp.lastName].join(" "), user_path(request)
+        = link_to "Accept", {:action => 'afriend', :id => request}
+        =" or "
+        = link_to "Deny!", {:action => 'dfriend', :id => request}
 
 %br
 %a=link_to "Back to Profile!", user_path(session[:id])
