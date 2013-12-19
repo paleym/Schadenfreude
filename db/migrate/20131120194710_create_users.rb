@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration
     	t.string :salt
     	t.datetime :birthday
     	t.text :friends, default: nil
+    	t.text :requests, default: nil
       t.timestamps
     end
   end

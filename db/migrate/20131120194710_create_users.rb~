@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration
     	t.string :password
     	t.string :salt
     	t.datetime :birthday
-    	t.text :friends, :default => nil
+    	t.text :friends, default: nil
       t.timestamps
     end
   end

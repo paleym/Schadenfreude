@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20131213234120) do
     t.string   "salt"
     t.datetime "birthday"
     t.text     "friends"
+    t.text     "requests"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
