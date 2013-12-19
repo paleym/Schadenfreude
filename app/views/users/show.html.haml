@@ -37,9 +37,9 @@
   - if(@friend != nil)
     %br
     =link_to "Post on Wall", {:action => 'new', :controller => 'wallposts', :email => @friend.email}
-    %br
-    = form_tag "addfriend" do |f|
-      = submit_tag 'Add Friend!'
+    -#%br
+    = #form_tag "addfriend" do |f|
+      = #submit_tag 'Add Friend!'
 
   %br
   =link_to "News Feed", '/users'
